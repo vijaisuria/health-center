@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../../services/api";
 import { useNavigate } from "react-router-dom";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -32,7 +32,7 @@ function DoctorProfile() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/doctor/${doctorId}`)
+      .get(`/doctor/${doctorId}`)
       .then((response) => {
         setDoctor(response.data);
       })
@@ -47,7 +47,7 @@ function DoctorProfile() {
     if (passwords.password === passwords.confirmPassword) {
       doctor.password = passwords.password;
       axios
-        .put(`http://localhost:5000/api/doctor/${doctorId}`, doctor)
+        .put(`/doctor/${doctorId}`, doctor)
         .then((response) => {
           console.log(response);
           toast.success("Doctor profile loaded");

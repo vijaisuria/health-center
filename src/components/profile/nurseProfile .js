@@ -32,7 +32,7 @@ function NurseProfile() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/nurse/${nurseId}`)
+      .get(`/nurse/${nurseId}`)
       .then((response) => {
         setNurse(response.data);
       })
@@ -47,7 +47,7 @@ function NurseProfile() {
     if (passwords.password === passwords.confirmPassword) {
       nurse.password = passwords.password;
       axios
-        .put(`http://localhost:5000/api/nurse/${nurseId}`, nurse)
+        .put(`/nurse/${nurseId}`, nurse)
         .then((response) => {
           console.log(response);
           toast.success("Nurse profile loaded");
