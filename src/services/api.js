@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://helth-center-api.onrender.com", // Replace with your actual API base URL
+  baseURL: "https://helth-center-api.onrender.com/api", // Replace with your actual API base URL
 });
 
 // Add a response interceptor to handle server errors
