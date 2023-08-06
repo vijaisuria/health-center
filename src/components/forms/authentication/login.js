@@ -24,7 +24,7 @@ function LoginForm() {
           className="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center"
           style={{
             backgroundImage:
-              "url(http://www.health-centre.mitindia.edu/health_centre/hel15.jpg)",
+              "url(/assets/images/mit-hc.jpg)",
           }}
         >
           <div className="absolute bg-black opacity-60 inset-0 z-0"></div>
