@@ -134,8 +134,7 @@ const Team = () => {
                     Full Stack Developer
                   </p>
                   <p className="text-center text-gray-600 text-base pt-3 font-normal">
-                    Computer Science Engineering Student, MIT Campus, Anna
-                    University, Chennai
+                    Designed And Developed the HealthCare Automation Software
                   </p>
                   <div className="w-full flex justify-center pt-5 pb-5">
                     <a
@@ -212,7 +211,7 @@ const Team = () => {
                   <div className="h-32 w-32">
                     <img
                       src="/assets/images/roshni.jpg"
-                      alt="Display Picture of Vijaisuria"
+                      alt="Display Picture of Roshni"
                       role="img"
                       className="rounded-full object-cover h-full w-full shadow-md"
                     />
@@ -226,12 +225,11 @@ const Team = () => {
                     Back-End Developer
                   </p>
                   <p className="text-center text-gray-600 text-base pt-3 font-normal">
-                    Computer Science Engineering Student, MIT Campus, Anna
-                    University, Chennai
+                    Designed and manages the Database Schemas
                   </p>
                   <div className="w-full flex justify-center pt-5 pb-5">
                     <a
-                      href="https://www.github.com/vijaisuria/"
+                      href="#"
                       className="mx-5"
                     >
                       <div aria-label="Github" role="img">
@@ -252,7 +250,7 @@ const Team = () => {
                       </div>
                     </a>
                     <a
-                      href="https://www.linkedin.com/in/vijaisuria/"
+                      href="mailto:roshni.lavanyanaga@gmail.com"
                       className="mx-5"
                     >
                       <div aria-label="LinkedIn" role="img">
@@ -263,7 +261,7 @@ const Team = () => {
                         />
                       </div>
                     </a>
-                    <a href="javascript:void(0)" className="mx-5">
+                    <a href="https://www.instagram.com/its._.roshni_/" className="mx-5">
                       <div aria-label="Instagram" role="img">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -304,7 +302,7 @@ const Team = () => {
                   <div className="h-32 w-32">
                     <img
                       src="/assets/images/dhanush.jpeg"
-                      alt="Display Picture of Vijaisuria"
+                      alt="Display Picture of Dhanush"
                       role="img"
                       className="rounded-full object-cover h-full w-full shadow-md"
                     />
