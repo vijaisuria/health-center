@@ -27,6 +27,8 @@ import NurseProfile from "./components/profile/nurseProfile ";
 import NurseDashboard from "./components/dashboard/nurseDashboard";
 import Team from "./components/team/team";
 import Footer from "./components/footer/footer";
+import UserDashboard from "./components/dashboard/userDashboard";
+import BookingPage from "./components/forms/appointment/booking";
 
 function App() {
   return (
@@ -34,6 +36,11 @@ function App() {
       <BrowserRouter basename="/">
         <Routes>
           <Route path="/" element={<LoginForm />} />
+
+          <Route path="/user">
+            <Route index element={<UserDashboard />} />
+            <Route path="book" element={<BookingPage />} />
+          </Route>
 
           <Route path="/doctor" element={<Navbar />}>
             <Route index element={<Home />} />
