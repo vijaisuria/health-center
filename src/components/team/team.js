@@ -135,6 +135,8 @@ const Team = () => {
                   </p>
                   <p className="text-center text-gray-600 text-base pt-3 font-normal">
                     Designed And Developed the HealthCare Automation Software
+                    <br />
+                    CSE Undergrad, MIT, Anna University
                   </p>
                   <div className="w-full flex justify-center pt-5 pb-5">
                     <a
@@ -225,13 +227,11 @@ const Team = () => {
                     Back-End Developer
                   </p>
                   <p className="text-center text-gray-600 text-base pt-3 font-normal">
-                    Designed and manages the Database Schemas
+                    Designed and Manages the Database Schemas <br />
+                    CSE Undergrad, MIT, Anna University
                   </p>
                   <div className="w-full flex justify-center pt-5 pb-5">
-                    <a
-                      href="#"
-                      className="mx-5"
-                    >
+                    <a href="#" className="mx-5">
                       <div aria-label="Github" role="img">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -261,7 +261,10 @@ const Team = () => {
                         />
                       </div>
                     </a>
-                    <a href="https://www.instagram.com/its._.roshni_/" className="mx-5">
+                    <a
+                      href="https://www.instagram.com/its._.roshni_/"
+                      className="mx-5"
+                    >
                       <div aria-label="Instagram" role="img">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
