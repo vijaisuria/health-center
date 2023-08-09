@@ -122,6 +122,8 @@ function Prescriptions() {
     XLSX.writeFile(workbook, "prescriptions.xlsx");
   };
 
+  let c = 1;
+
   return (
     <div className="container mx-auto overflow-x-auto font-sans flex flex-col justify-center">
       <div className="flex flex-wrap items-center justify-between m-4 flex-col md:flex-row gap-4">
@@ -178,28 +180,31 @@ function Prescriptions() {
         <thead>
           <tr>
             <th className="p-3 font-bold uppercase bg-gray-200  border border-gray-300 ">
-              Patient Name
-            </th>
-            <th className="p-3 font-bold uppercase bg-gray-200  border border-gray-300 ">
-              Patient Reg No
-            </th>
-            <th className="p-3 font-bold uppercase bg-gray-200  border border-gray-300 ">
-              Year
-            </th>
-            <th className="p-3 font-bold uppercase bg-gray-200  border border-gray-300 ">
-              Age
-            </th>
-            <th className="p-3 font-bold uppercase bg-gray-200  border border-gray-300 ">
-              Department
-            </th>
-            <th className="p-3 font-bold uppercase bg-gray-200  border border-gray-300 ">
-              Doctor
+              S.No
             </th>
             <th className="p-3 font-bold uppercase bg-gray-200  border border-gray-300 ">
               Date
             </th>
             <th className="p-3 font-bold uppercase bg-gray-200  border border-gray-300 ">
-              Symptoms
+              Patient Reg No
+            </th>
+            <th className="p-3 font-bold uppercase bg-gray-200  border border-gray-300 ">
+              Patient Name
+            </th>
+            <th className="p-3 font-bold uppercase bg-gray-200  border border-gray-300 ">
+              Age / Gender
+            </th>
+            <th className="p-3 font-bold uppercase bg-gray-200  border border-gray-300 ">
+              Department - Year
+            </th>
+            <th className="p-3 font-bold uppercase bg-gray-200  border border-gray-300 ">
+              Consulting Doctor
+            </th>
+            <th className="p-3 font-bold uppercase bg-gray-200  border border-gray-300 ">
+              Complaints
+            </th>
+            <th className="p-3 font-bold uppercase bg-gray-200  border border-gray-300 ">
+              Tests
             </th>
             <th className="p-3 font-bold uppercase bg-gray-200  border border-gray-300 ">
               Details
@@ -218,28 +223,32 @@ function Prescriptions() {
                 className="text-gray-600 transition-all hover:bg-slate-500 hover:text-white"
               >
                 <td className="p-3  uppercase border border-gray-300 ">
-                  {prescription.patientName}
+                  {c++}
+                </td>
+                <td className="p-3  uppercase border border-gray-300 ">
+                  {new Date(prescription.date).toLocaleDateString("en-GB")}
                 </td>
                 <td className="p-3  uppercase  border border-gray-300 ">
                   {prescription.patientRegNo}
                 </td>
-                <td className="p-3  uppercase  border border-gray-300 ">
-                  {prescription.year}
+                <td className="p-3  uppercase border border-gray-300 ">
+                  {prescription.patientName}
                 </td>
                 <td className="p-3  uppercase  border border-gray-300 ">
-                  {prescription.age}
+                  {prescription.age + " / " + prescription.gender}
                 </td>
                 <td className="p-3  uppercase  border border-gray-300 ">
-                  {prescription.department}
+                  {prescription.department + " / " + prescription.year}
                 </td>
                 <td className="p-3  uppercase  border border-gray-300 ">
                   {prescription.doctor}
                 </td>
-                <td className="p-3  uppercase  border border-gray-300 ">
-                  {new Date(prescription.date).toLocaleDateString("en-GB")}
-                </td>
+
                 <td className="p-3  uppercase  border border-gray-300 ">
                   {prescription.symptoms}
+                </td>
+                <td className="p-3  uppercase  border border-gray-300 ">
+                  {prescription.tests}
                 </td>
                 <td className="p-3  uppercase  border border-gray-300 ">
                   <button
