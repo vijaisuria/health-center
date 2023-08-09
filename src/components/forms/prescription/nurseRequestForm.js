@@ -316,7 +316,7 @@ const NurseRequestForm = () => {
         </div>
         <div className="mb-4">
           <label htmlFor="spo2" className="block font-medium mb-2">
-            SpO₂ (Oxygen Level)
+            SpO₂ (%)
           </label>
           <input
             type="number"
@@ -328,7 +328,7 @@ const NurseRequestForm = () => {
         </div>
         <div className="mb-4">
           <label htmlFor="heartRate" className="block font-medium mb-2">
-            Heart Rate
+            Heart Rate (per min)
           </label>
           <input
             type="number"
@@ -340,7 +340,7 @@ const NurseRequestForm = () => {
         </div>
         <div className="mb-4">
           <label htmlFor="bloodPressure" className="block font-medium mb-2">
-            Blood Pressure (BP)
+            Blood Pressure (mmHg)
           </label>
           <input
             type="text"
@@ -352,7 +352,7 @@ const NurseRequestForm = () => {
         </div>
         <div className="mb-4">
           <label htmlFor="temperature" className="block font-medium mb-2">
-            Temperature
+            Temperature (°F)
           </label>
           <input
             type="number"

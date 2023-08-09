@@ -8,6 +8,7 @@ const PrescriptionEditForm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  const [medicines, setMedicines] = useState([]);
   const [prescriptionData, setPrescriptionData] = useState({
     patientName: "",
     patientRegNo: "",
@@ -15,7 +16,7 @@ const PrescriptionEditForm = () => {
     age: 0,
     department: "",
     doctor: "",
-    medicine: [],
+    medicine: medicines,
     date: "",
     symptoms: "",
     tests: "",
@@ -26,7 +27,6 @@ const PrescriptionEditForm = () => {
     bloodPressure: 0,
   });
 
-  const [medicines, setMedicines] = useState([]);
   const [newMedicine, setNewMedicine] = useState({
     type: "tablet",
     name: "",
@@ -36,9 +36,7 @@ const PrescriptionEditForm = () => {
 
   const [medicineNames, setMedicineNames] = useState([]);
   const addMedicine = () => {
-    console.log(newMedicine);
     if (newMedicine.name) {
-      console.log(newMedicine);
       setMedicines([...medicines, { ...newMedicine }]);
       setNewMedicine({
         type: "tablet",
@@ -112,19 +110,12 @@ const PrescriptionEditForm = () => {
     }));
   };
 
-  const handleMedicineChange = (e) => {
-    const selectedMedicine = Array.from(
-      e.target.selectedOptions,
-      (option) => option.value
-    );
-    setPrescriptionData((prevData) => ({
-      ...prevData,
-      medicine: selectedMedicine,
-    }));
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    setPrescriptionData((prevData) => ({
+      ...prevData,
+      medicine: medicines,
+    }));
 
     axios
       .put(`/prescription/response/${id}`, prescriptionData)
@@ -140,6 +131,8 @@ const PrescriptionEditForm = () => {
         toast.error("Unable to update data to the database");
       });
   };
+
+  console.log(medicines);
 
   return (
     <div className="flex justify-center mt-3 font-sans">
@@ -385,10 +378,10 @@ const PrescriptionEditForm = () => {
                   value={newMedicine.name}
                   onChange={(e) => {
                     setNewMedicine({ ...newMedicine, name: e.target.value });
-                    console.log(newMedicine.name);
                   }}
                   className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
                 >
+                  <option value="">Select Medicine</option>
                   {getMedicineNamesByType(newMedicine.type).map((medicine) => (
                     <option key={medicine.id} value={medicine.name}>
                       {medicine.name}

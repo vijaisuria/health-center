@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const MedicineModifyForm = ({ medicineId, onClose }) => {
   const navigate = useNavigate();
+  const [newStockCount, setNewStockCount] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
     supplierId: "",
@@ -24,14 +25,15 @@ const MedicineModifyForm = ({ medicineId, onClose }) => {
             name: medicineData.name,
             supplierId: medicineData.supplierId,
             expdate: new Date(medicineData.expdate).toISOString().slice(0, 10),
-            countInStock: medicineData.countInStock,
+            countInStock:
+              parseFloat(medicineData.countInStock) + parseInt(newStockCount),
           });
         })
         .catch((error) => {
           console.error("Error fetching medicine details:", error);
         });
     }
-  }, [medicineId]);
+  }, [medicineId, newStockCount]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -83,20 +85,6 @@ const MedicineModifyForm = ({ medicineId, onClose }) => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="supplierId" className="block font-semibold mb-2">
-              Supplier ID
-            </label>
-            <input
-              type="text"
-              name="supplierId"
-              id="supplierId"
-              value={formData.supplierId}
-              onChange={handleChange}
-              className="w-full border rounded px-3 py-2"
-              required
-            />
-          </div>
-          <div className="mb-4">
             <label htmlFor="expdate" className="block font-semibold mb-2">
               Expiry Date
             </label>
@@ -112,14 +100,29 @@ const MedicineModifyForm = ({ medicineId, onClose }) => {
           </div>
           <div className="mb-4">
             <label htmlFor="countInStock" className="block font-semibold mb-2">
-              In Stock
+              In Stock (Existing)
             </label>
             <input
               type="number"
               name="countInStock"
               id="countInStock"
+              disabled
               value={formData.countInStock}
               onChange={handleChange}
+              className="w-full border rounded px-3 py-2"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="countInStock" className="block font-semibold mb-2">
+              Stock Count
+            </label>
+            <input
+              type="number"
+              name="newStock"
+              id="newStock"
+              value={newStockCount}
+              onChange={(event) => setNewStockCount(event.target.value)}
               className="w-full border rounded px-3 py-2"
               required
             />

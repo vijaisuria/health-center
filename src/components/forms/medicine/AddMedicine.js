@@ -78,8 +78,20 @@ const AddMedicineForm = ({ onClose }) => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="supplier">Select Supplier</label>
-                  <SupplierDropdown onChange={handleSupplierChange} />
+                  <label htmlFor="supplier">Select Type</label>
+                  <select
+                    id="medicineType"
+                    name="type"
+                    value={medicineData.type}
+                    onChange={handleChange}
+                    className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
+                  >
+                    <option value="tablet">Tablet</option>
+                    <option value="ointment">Ointment</option>
+                    <option value="syrup">Syrup</option>
+                    <option value="drops">Drops</option>
+                    <option value="injection">Injection</option>
+                  </select>
                 </div>
                 <div className="mb-4">
                   <label
