@@ -20,9 +20,7 @@ function MedicinePage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterSupplier, setFilterSupplier] = useState("");
   const [sortOption, setSortOption] = useState("name");
-  const [supplierNames, setSupplierNames] = useState({});
 
   const [showModal, setShowModal] = useState(false);
 
@@ -32,21 +30,6 @@ function MedicinePage() {
 
   const handleCloseModal = () => {
     setShowModal(false);
-  };
-
-  const fetchSupplierName = async (supplierId) => {
-    if (supplierId) {
-      try {
-        const response = await axios.get(`/supplier/${supplierId}`);
-        const supplierName = response.data.name;
-        setSupplierNames((prevNames) => ({
-          ...prevNames,
-          [supplierId]: supplierName,
-        }));
-      } catch (error) {
-        console.error("Error fetching supplier name:", error);
-      }
-    }
   };
 
   const navigate = useNavigate();
@@ -71,16 +54,9 @@ function MedicinePage() {
     const fetchMedicines = async () => {
       try {
         const response = await axios.get(
-          `/medicine?page=${currentPage}&sort=${sortOption}&search=${searchTerm}&supplier=${filterSupplier}`
+          `/medicine?page=${currentPage}&sort=${sortOption}&search=${searchTerm}`
         );
         const medicinesData = response.data;
-
-        // Fetch supplier names for each medicine
-        for (const medicine of medicinesData) {
-          if (!supplierNames[medicine.supplierId]) {
-            fetchSupplierName(medicine.supplierId);
-          }
-        }
 
         setMedicines(medicinesData);
         const totalMedicines = response.headers["x-total-count"];
@@ -92,14 +68,10 @@ function MedicinePage() {
     };
 
     fetchMedicines();
-  }, [currentPage, sortOption, searchTerm, filterSupplier, supplierNames]);
+  }, [currentPage, sortOption, searchTerm]);
 
   const handleSearchInputChange = (event) => {
     setSearchTerm(event.target.value);
-  };
-
-  const handleFilterInputChange = (event) => {
-    setFilterSupplier(event.target.value);
   };
 
   const handleSortOptionChange = (event) => {
@@ -172,18 +144,7 @@ function MedicinePage() {
                 <FontAwesomeIcon icon={faSearch} className="text-gray-400" />
               </span>
             </div>
-            <div className="relative mb-4 md:mb-0">
-              <input
-                type="text"
-                placeholder="Filter by Supplier"
-                value={filterSupplier}
-                onChange={handleFilterInputChange}
-                className="px-4 py-2 border rounded-lg shadow-md w-full focus:outline-none focus:ring focus:border-blue-500"
-              />
-              <span className="absolute inset-y-0 right-0 flex items-center pr-3">
-                <FontAwesomeIcon icon={faFilter} className="text-gray-400" />
-              </span>
-            </div>
+
             <div className="relative mb-4 md:mb-0">
               <select
                 value={sortOption}
@@ -192,6 +153,7 @@ function MedicinePage() {
               >
                 <option value="name">Sort by Name</option>
                 <option value="expdate">Sort by Expiry Date</option>
+                <option value="type">Sort by Type</option>
                 <option value="countInStock">Sort by Stock</option>
               </select>
             </div>
@@ -200,7 +162,7 @@ function MedicinePage() {
             <thead>
               <tr className="p-3 font-bold uppercase bg-blue-500 border border-gray-300">
                 <th className="border border-gray-300 p-3 my-2">Name</th>
-                <th className="border border-gray-300 p-3 my-2">SupplierId</th>
+                <th className="border border-gray-300 p-3 my-2">Type</th>
                 <th className="border border-gray-300 p-3 my-2">Expiry</th>
                 <th className="border border-gray-300 p-3 my-2">In Stock</th>
                 <th className="border border-gray-300 p-3 my-2">Date</th>
@@ -217,7 +179,7 @@ function MedicinePage() {
                     {med.name}
                   </td>
                   <td className="border border-gray-300 p-3 my-2">
-                    {supplierNames[med.supplierId] || "Loading..."}
+                    {med.type}
                   </td>
                   <td className="border border-gray-300 p-3 my-2">
                     {new Date(med.expdate).toLocaleDateString("en-GB") +
