@@ -31,7 +31,7 @@ const Team = () => {
                   <div className="h-32 w-32">
                     <img
                       src="/assets/images/jayachitra.jpg"
-                      alt="Display Picture of Andres Berlin"
+                      alt="Display Picture of Jayachithra"
                       role="img"
                       className="rounded-full object-cover h-full w-full shadow-md"
                     />
@@ -39,12 +39,13 @@ const Team = () => {
                 </div>
                 <div className="px-6 mt-16">
                   <h1 className="font-bold text-3xl text-center mb-1">
-                    Dr. Jayachitra
+                    Dr. V.P. Jayachitra
                   </h1>
                   <p className="text-gray-800 text-sm text-center">
-                    Deputy Director | MIT Health Center
+                    Deputy Director | MIT Health Centre
                   </p>
                   <p className="text-center text-gray-600 text-base pt-3 font-normal">
+                    Design and Administration of HealthCare Automation Software <br />   
                     Assistant Professor, Department of Computer Technology, MIT
                     Campus, Anna University, Chennai
                   </p>
@@ -68,7 +69,7 @@ const Team = () => {
                       </div>
                     </a>
                     <a
-                      href="https://www.linkedin.com/in/vijaisuria/"
+                      href="#"
                       className="mx-5"
                     >
                       <div aria-label="LinkedIn" role="img">
@@ -128,7 +129,7 @@ const Team = () => {
                 </div>
                 <div className="px-6 mt-16">
                   <h1 className="font-bold text-3xl text-center mb-1">
-                    Mr. M Vijai Suria
+                    M. Vijai Suria
                   </h1>
                   <p className="text-gray-800 text-sm text-center">
                     Full Stack Developer
@@ -221,7 +222,7 @@ const Team = () => {
                 </div>
                 <div className="px-6 mt-16">
                   <h1 className="font-bold text-3xl text-center mb-1">
-                    Ms. Roshni Naga
+                    N. Roshni
                   </h1>
                   <p className="text-gray-800 text-sm text-center">
                     Back-End Developer
@@ -313,7 +314,7 @@ const Team = () => {
                 </div>
                 <div className="px-6 mt-16">
                   <h1 className="font-bold text-3xl text-center mb-1">
-                    Mr. Dhanush
+                    Dhanush Tatineni
                   </h1>
                   <p className="text-gray-800 text-sm text-center">
                     Front-end Developer
