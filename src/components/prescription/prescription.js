@@ -20,6 +20,10 @@ function Prescription() {
     window.print();
   };
 
+  const parsedMedicine = prescription.medicine
+    ? JSON.parse(prescription.medicine)
+    : [];
+
   return (
     <>
       <header className="bg-white shadow hidden">
@@ -105,17 +109,31 @@ function Prescription() {
                     new Date(prescription.date).toLocaleTimeString("en-GB")}
                 </span>
               </p>
-              <p className="font-bold my-2">
-                Medicine:{" "}
-                <span className="border p-2 bg-gray-100 float-right w-64 rounded-md font-normal">
-                  {prescription.medicine !== undefined
-                    ? prescription.medicine
-                        .join("\n")
-                        .split("\n")
-                        .map((med, index) => <p key={index}>{med}</p>)
-                    : "-------------"}
-                </span>
-              </p>
+              <p className="font-bold my-2">Medicine:</p>
+              {parsedMedicine.length > 0 ? (
+                <table className="border-collapse w-full">
+                  <thead>
+                    <tr>
+                      <th className="border p-2">Name</th>
+                      <th className="border p-2">Type</th>
+                      <th className="border p-2">Dosage</th>
+                      <th className="border p-2">Food</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {parsedMedicine.map((med, index) => (
+                      <tr key={index}>
+                        <td className="border p-2">{med.name}</td>
+                        <td className="border p-2">{med.type}</td>
+                        <td className="border p-2">{med.dosage}</td>
+                        <td className="border p-2">{med.food}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              ) : (
+                <p>No medicines available</p>
+              )}
               <p className="font-bold my-2">
                 Symptoms:{" "}
                 <span className="border p-2 bg-gray-100 float-right w-64 rounded-md font-normal">

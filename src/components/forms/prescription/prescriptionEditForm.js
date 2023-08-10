@@ -38,6 +38,10 @@ const PrescriptionEditForm = () => {
   const addMedicine = () => {
     if (newMedicine.name) {
       setMedicines([...medicines, { ...newMedicine }]);
+      setPrescriptionData((prevData) => ({
+        ...prevData,
+        medicine: medicines,
+      }));
       setNewMedicine({
         type: "tablet",
         name: "",
@@ -114,9 +118,18 @@ const PrescriptionEditForm = () => {
     e.preventDefault();
     setPrescriptionData((prevData) => ({
       ...prevData,
-      medicine: medicines,
+      medicine: JSON.stringify(medicines),
     }));
 
+    console.log(prescriptionData);
+    console.log(typeof medicines);
+
+    console.log(typeof medicines[0]);
+
+    if (prescriptionData.medicine.length === 0) {
+      toast.error("Please add atleast one medicine");
+      return;
+    }
     axios
       .put(`/prescription/response/${id}`, prescriptionData)
       .then((response) => {
@@ -131,8 +144,6 @@ const PrescriptionEditForm = () => {
         toast.error("Unable to update data to the database");
       });
   };
-
-  console.log(medicines);
 
   return (
     <div className="flex justify-center mt-3 font-sans">
@@ -255,7 +266,7 @@ const PrescriptionEditForm = () => {
 
           <div className="flex flex-wrap mx-3 px-3 mb-5">
             <label htmlFor="spo2" className="block font-medium mb-2">
-              SpO₂ (Oxygen Level)
+              SpO₂ (%)
             </label>
             <input
               type="number"
@@ -267,7 +278,7 @@ const PrescriptionEditForm = () => {
           </div>
           <div className="flex flex-wrap mx-3 px-3 mb-5">
             <label htmlFor="heartRate" className="block font-medium mb-2">
-              Heart Rate
+              Heart Rate (per min)
             </label>
             <input
               type="number"
@@ -279,7 +290,7 @@ const PrescriptionEditForm = () => {
           </div>
           <div className="flex flex-wrap mx-3 px-3 mb-5">
             <label htmlFor="bloodPressure" className="block font-medium mb-2">
-              Blood Pressure (BP)
+              Blood Pressure (mmHg)
             </label>
             <input
               type="text"
@@ -291,7 +302,7 @@ const PrescriptionEditForm = () => {
           </div>
           <div className="flex flex-wrap mx-3 px-3 mb-5">
             <label htmlFor="temperature" className="block font-medium mb-2">
-              Temperature
+              Temperature (°F)
             </label>
             <input
               type="number"
