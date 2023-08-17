@@ -29,6 +29,7 @@ import Team from "./components/team/team";
 import Footer from "./components/footer/footer";
 import UserDashboard from "./components/dashboard/userDashboard";
 import BookingPage from "./components/forms/appointment/booking";
+import SPrescriptions from "./components/prescription/studentPrescription";
 
 function App() {
   return (
@@ -38,8 +39,7 @@ function App() {
           <Route path="/" element={<LoginForm />} />
 
           <Route path="/user">
-            <Route index element={<UserDashboard />} />
-            <Route path="book" element={<BookingPage />} />
+            <Route path="prescriptions/:reg" element={<SPrescriptions />} />
           </Route>
 
           <Route path="/doctor" element={<Navbar />}>
