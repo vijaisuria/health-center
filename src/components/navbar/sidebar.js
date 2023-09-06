@@ -68,12 +68,12 @@ const Sidebar = () => {
               </button>
               <a href="https://flowbite.com" className="flex ml-2 md:mr-24">
                 <img
-                  src="https://flowbite.com/docs/images/logo.svg"
+                  src="/assets/images/mit-hc-logo.png"
                   className="h-8 mr-3"
                   alt="FlowBite Logo"
                 />
-                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
-                  Flowbite
+                <span className="self-center text-lg font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
+                  HealthCare Admin Panel
                 </span>
               </a>
             </div>
@@ -108,7 +108,7 @@ const Sidebar = () => {
             </li>
             <li className="mb-4  hover:bg-gray-900 p-2 rounded">
               <Link
-                to="/admin/students"
+                to="/admin/student"
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <FontAwesomeIcon

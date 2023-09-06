@@ -12,12 +12,13 @@ import AdminLoginForm from "./components/forms/authentication/adminLogin";
 import Home from "./components/dashboard/home";
 import Sidebar from "./components/navbar/sidebar";
 import DoctorPage from "./components/ADMIN/doctor.page";
+import StudentPage from "./components/ADMIN/student.page";
 import AdminPage from "./components/ADMIN/admin.page";
 import MedicinePage from "./components/ADMIN/medicines/medicine.page";
 import NursePage from "./components/ADMIN/nurse.page";
 import SupplierPage from "./components/ADMIN/supplier.page";
 import AdminPanel from "./components/dashboard/adminDashboard";
-import NurseRequestForm from "./components/forms/prescription/nurseRequestForm";
+import NurseRequestForm from "./components/forms/prescription/nurseStudentRequestForm";
 import DoctorDashboard from "./components/requests/doctorDashboard";
 import PrescriptionEditForm from "./components/forms/prescription/prescriptionEditForm";
 import Error404 from "./components/error/notfound";
@@ -34,6 +35,7 @@ import StudentRegistrationForm from "./components/forms/user/studentRegister";
 import VerificationForm from "./components/forms/user/verifyStudentRegister";
 import AdminLogs from "./components/logs/adminLog";
 import RequestLandingPage from "./components/forms/prescription/newRequest";
+import NurseStaffRequestForm from "./components/forms/prescription/nurseStaffRequestForm";
 
 function App() {
   return (
@@ -61,7 +63,18 @@ function App() {
 
             <Route path="new" element={<RequestLandingPage />} />
             <Route path="requests" element={<NurseDashboard />} />
-            <Route path="create" element={<NurseRequestForm />} />
+            <Route
+              path="create-request/student"
+              element={<NurseRequestForm />}
+            />
+            <Route
+              path="create-request/staff"
+              element={<NurseStaffRequestForm />}
+            />
+            <Route
+              path="create-request/staff-family"
+              element={<NurseStaffRequestForm />}
+            />
             <Route path="profile" element={<NurseProfile />} />
             <Route path="prescriptions" element={<Prescriptions />} />
           </Route>
@@ -76,6 +89,7 @@ function App() {
             <Route path="verify" element={<VerificationForm />} />
             <Route path="logs" element={<AdminLogs />} />
             <Route path="doctor" element={<DoctorPage />} />
+            <Route path="student" element={<StudentPage />} />
           </Route>
 
           <Route path="/prescriptions/:id" element={<Prescription />} />

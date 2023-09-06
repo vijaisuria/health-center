@@ -25,7 +25,7 @@ const RequestLandingPage = () => {
       <div className="grid w-full md:w-3/4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4">
         {/* New Student Registration */}
         <Link
-          to="/new-student"
+          to="/student/register"
           className="bg-white rounded-lg shadow-md p-4 hover:bg-blue-50 transition duration-300"
         >
           <FontAwesomeIcon icon={faUser} className="text-2xl mb-2" />
@@ -37,7 +37,7 @@ const RequestLandingPage = () => {
 
         {/* Existing UG/PG/PHD Student */}
         <Link
-          to="/existing-student"
+          to="/nurse/create-request/student"
           className="bg-white rounded-lg shadow-md p-4 hover:bg-blue-50 transition duration-300"
         >
           <FontAwesomeIcon icon={faGraduationCap} className="text-2xl mb-2" />
@@ -49,7 +49,7 @@ const RequestLandingPage = () => {
 
         {/* Staff Member */}
         <Link
-          to="/staff-member"
+          to="/nurse/create-request/student"
           className="bg-white rounded-lg shadow-md p-4 hover:bg-blue-50 transition duration-300"
         >
           <FontAwesomeIcon
@@ -63,7 +63,7 @@ const RequestLandingPage = () => {
         </Link>
 
         <Link
-          to="/staff-member"
+          to="/nurse/create-request/staff"
           className="bg-white rounded-lg shadow-md p-4 hover:bg-blue-50 transition duration-300"
         >
           <FontAwesomeIcon
@@ -76,7 +76,7 @@ const RequestLandingPage = () => {
 
         {/* Staff Family Member */}
         <Link
-          to="/staff-family-member"
+          to="/nurse/create-request/staff-family"
           className="bg-white rounded-lg shadow-md p-4 hover:bg-blue-50 transition duration-300"
         >
           <FontAwesomeIcon icon={faUsers} className="text-2xl mb-2" />

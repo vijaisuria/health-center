@@ -48,12 +48,12 @@ const VerificationForm = () => {
   }, []);
 
   return (
-    <div className="container min-h-screen flex items-center justify-center">
-      <div className="max-w-lg mx-auto mt-8 p-4 bg-blue-300 shadow-lg rounded-lg">
+    <div className="container min-h-screen flex items-center ">
+      <div className="w-90 md:w-1/3 mx-auto mt-8 p-4  bg-blue-300 shadow-lg rounded-lg">
         <h1 className="text-3xl font-semibold mb-4 text-center text-white">
           Student Verification
         </h1>
-        <form className="space-y-4" onSubmit={handleVerificationSubmit}>
+        <form className="space-y-4 w-full" onSubmit={handleVerificationSubmit}>
           <div>
             <label htmlFor="registerNumber" className="block font-semibold">
               Register Number:
