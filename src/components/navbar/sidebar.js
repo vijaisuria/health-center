@@ -12,6 +12,8 @@ import {
   faSignOutAlt,
   faTimes,
   faBars,
+  faUserGraduate,
+  faHistory,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Sidebar = () => {
@@ -38,39 +40,58 @@ const Sidebar = () => {
 
   return (
     <>
-      <button
-        className="text-black fixed top-0 bg-indigo-800 w-30 lg:hidden transition duration-300 flex items-center"
-        onClick={toggleSidebar}
-      >
-        {isVisible ? (
-          <FontAwesomeIcon
-            icon={faTimes}
-            className="h-5 w-4 mr-2 p-5 border-2 hover:border-gray-500"
-          />
-        ) : (
-          <FontAwesomeIcon
-            icon={faBars}
-            className="h-6 w-4 mr-2 p-5  -ml-3 hover:border-2 hover:border-gray-500"
-          />
-        )}
-      </button>
-      <div
-        className={
-          isVisible
-            ? "bg-gray-800 h-screen w-30 lg:w-64 px-4 py-8 float-left fixed lg:left-0 top-16 lg:top-0"
-            : "hidden lg:block bg-gray-800 h-screen w-30 lg:w-64 px-4 py-8 float-left fixed left-0"
-        }
-      >
-        <div className="flex items-center justify-center mb-8">
-          <h1 className="text-white text-2xl font-bold">Admin Dashboard</h1>
+      <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        <div className="px-3 py-3 lg:px-5 lg:pl-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center justify-start">
+              <button
+                data-drawer-target="logo-sidebar"
+                data-drawer-toggle="logo-sidebar"
+                aria-controls="logo-sidebar"
+                type="button"
+                className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              >
+                <span className="sr-only">Open sidebar</span>
+                <svg
+                  className="w-6 h-6"
+                  aria-hidden="true"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clipRule="evenodd"
+                    fillRule="evenodd"
+                    d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+                  ></path>
+                </svg>
+              </button>
+              <a href="https://flowbite.com" className="flex ml-2 md:mr-24">
+                <img
+                  src="https://flowbite.com/docs/images/logo.svg"
+                  className="h-8 mr-3"
+                  alt="FlowBite Logo"
+                />
+                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
+                  Flowbite
+                </span>
+              </a>
+            </div>
+          </div>
         </div>
+      </nav>
 
-        <nav>
-          <ul>
+      <aside
+        id="logo-sidebar"
+        className="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+        aria-label="Sidebar"
+      >
+        <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+          <ul className="space-y-2 font-medium">
             <li className="mb-4 hover:bg-gray-900 p-2 rounded">
               <Link
                 to="/admin/dashboard"
-                className="text-white w-full hover:text-gray-400 transition duration-300 flex items-center"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <FontAwesomeIcon icon={faHome} className="h-5 w-5 mr-2" />
                 Dashboard
@@ -79,7 +100,7 @@ const Sidebar = () => {
             <li className="mb-4  hover:bg-gray-900 p-2 rounded">
               <Link
                 to="/admin/admins"
-                className="text-white hover:text-gray-400 transition duration-300 flex items-center"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <FontAwesomeIcon icon={faUser} className="h-5 w-5 mr-2" />
                 Admin
@@ -87,8 +108,20 @@ const Sidebar = () => {
             </li>
             <li className="mb-4  hover:bg-gray-900 p-2 rounded">
               <Link
+                to="/admin/students"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <FontAwesomeIcon
+                  icon={faUserGraduate}
+                  className="h-5 w-5 mr-2"
+                />
+                Student
+              </Link>
+            </li>
+            <li className="mb-4  hover:bg-gray-900 p-2 rounded">
+              <Link
                 to="/admin/doctor"
-                className="text-white hover:text-gray-400 transition duration-300 flex items-center"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <FontAwesomeIcon
                   icon={faClipboardList}
@@ -100,7 +133,7 @@ const Sidebar = () => {
             <li className="mb-4  hover:bg-gray-900 p-2 rounded">
               <Link
                 to="/admin/supplier"
-                className="text-white hover:text-gray-400 transition duration-300 flex items-center"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <FontAwesomeIcon icon={faTruck} className="h-5 w-5 mr-2" />
                 Supplier
@@ -109,7 +142,7 @@ const Sidebar = () => {
             <li className="mb-4  hover:bg-gray-900 p-2 rounded">
               <Link
                 to="/admin/medicine"
-                className="text-white hover:text-gray-400 transition duration-300 flex items-center"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <FontAwesomeIcon icon={faPills} className="h-5 w-5 mr-2" />
                 Medicine
@@ -118,7 +151,7 @@ const Sidebar = () => {
             <li className="mb-4 hover:bg-gray-900 p-2 rounded">
               <Link
                 to="/admin/nurse"
-                className="text-white hover:text-gray-400 transition duration-300 flex items-center"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <FontAwesomeIcon
                   icon={faUserFriends}
@@ -127,9 +160,18 @@ const Sidebar = () => {
                 Nurse
               </Link>
             </li>
+            <li className="mb-4 hover:bg-gray-900 p-2 rounded">
+              <Link
+                to="/admin/logs"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+                <FontAwesomeIcon icon={faHistory} className="h-5 w-5 mr-2" />
+                Logs
+              </Link>
+            </li>
             <li className="mb-4 bg-red-700 hover:bg-red-800 p-2 rounded">
               <span
-                className="text-white hover:text-gray-400 transition duration-300 flex items-center"
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                 onClick={handleSignout}
               >
                 <FontAwesomeIcon icon={faSignOutAlt} className="h-5 w-5 mr-2" />
@@ -137,8 +179,9 @@ const Sidebar = () => {
               </span>
             </li>
           </ul>
-        </nav>
-      </div>
+        </div>
+      </aside>
+
       <Outlet />
     </>
   );

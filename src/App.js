@@ -18,18 +18,22 @@ import NursePage from "./components/ADMIN/nurse.page";
 import SupplierPage from "./components/ADMIN/supplier.page";
 import AdminPanel from "./components/dashboard/adminDashboard";
 import NurseRequestForm from "./components/forms/prescription/nurseRequestForm";
-import DoctorDashboard from "./components/dashboard/doctorDashboard";
+import DoctorDashboard from "./components/requests/doctorDashboard";
 import PrescriptionEditForm from "./components/forms/prescription/prescriptionEditForm";
 import Error404 from "./components/error/notfound";
 import Error500 from "./components/error/error500";
 import NurseNavBar from "./components/navbar/nurseNav";
 import NurseProfile from "./components/profile/nurseProfile ";
-import NurseDashboard from "./components/dashboard/nurseDashboard";
+import NurseDashboard from "./components/requests/nurseDashboard";
 import Team from "./components/team/team";
 import Footer from "./components/footer/footer";
 import UserDashboard from "./components/dashboard/userDashboard";
 import BookingPage from "./components/forms/appointment/booking";
 import SPrescriptions from "./components/prescription/studentPrescription";
+import StudentRegistrationForm from "./components/forms/user/studentRegister";
+import VerificationForm from "./components/forms/user/verifyStudentRegister";
+import AdminLogs from "./components/logs/adminLog";
+import RequestLandingPage from "./components/forms/prescription/newRequest";
 
 function App() {
   return (
@@ -38,7 +42,8 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginForm />} />
 
-          <Route path="/user">
+          <Route path="/student">
+            <Route path="register" element={<StudentRegistrationForm />} />
             <Route path="prescriptions/:reg" element={<SPrescriptions />} />
           </Route>
 
@@ -53,6 +58,8 @@ function App() {
 
           <Route path="/nurse" element={<NurseNavBar />}>
             <Route index element={<Home />} />
+
+            <Route path="new" element={<RequestLandingPage />} />
             <Route path="requests" element={<NurseDashboard />} />
             <Route path="create" element={<NurseRequestForm />} />
             <Route path="profile" element={<NurseProfile />} />
@@ -66,6 +73,8 @@ function App() {
             <Route path="supplier" element={<SupplierPage />} />
             <Route path="nurse" element={<NursePage />} />
             <Route path="medicine" element={<MedicinePage />} />
+            <Route path="verify" element={<VerificationForm />} />
+            <Route path="logs" element={<AdminLogs />} />
             <Route path="doctor" element={<DoctorPage />} />
           </Route>
 
@@ -75,8 +84,6 @@ function App() {
           <Route path="/error" element={<Error500 />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
-
-        <Footer />
       </BrowserRouter>
     </>
   );

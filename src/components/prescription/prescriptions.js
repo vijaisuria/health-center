@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Prescriptions() {
+  const [isLoading, setIsLoading] = useState(true);
   const [prescriptionData, setPrescriptionData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortedData, setSortedData] = useState([]);
@@ -72,7 +73,10 @@ function Prescriptions() {
 
         fetchDoctorNames();
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error))
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [sortCriteria]);
 
   useEffect(() => {
@@ -212,10 +216,25 @@ function Prescriptions() {
           </tr>
         </thead>
         <tbody>
-          {sortedData.length === 0 ? (
-            <tr className="w-full text-3xl m-10 text-red-700 font-bold">
-              <td className="text-center">No records found</td>
-            </tr>
+          {isLoading || sortedData.length === 0 ? (
+            <>
+              <tr
+                className="w-full text-3xl m-10 text-red-700 font-bold"
+                rowSpan={5}
+              >
+                <td className="text-center h-64" colSpan={10}>
+                  <p>Please wait while we are fetching the data</p>
+                  <div
+                    class="inline-block h-8 w-8 m-4 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-danger motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                    role="status"
+                  >
+                    <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                      Loading...
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </>
           ) : (
             sortedData.map((prescription) => (
               <tr

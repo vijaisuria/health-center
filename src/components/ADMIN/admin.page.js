@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../services/api";
-import "./admin.page.css";
 
 import { useNavigate } from "react-router-dom";
 
@@ -36,14 +35,6 @@ function AdminPage() {
 
   return (
     <div className="ml-8 lg:ml-64">
-      <div
-        className=" bg-yellow-500 origin-top float-right mt-9 mr-9 w-72 text-center"
-        style={{ transform: "translateX(50%) rotate(45deg)" }}
-      >
-        <div className="">Hi!</div>
-        <div className="">I am nice ribbon</div>
-        <div className="">That sits in a corner. </div>
-      </div>
       <header className="bg-indigo-800 h-16 top-0 fixed w-full flex items-center justify-center">
         <h1 className="text-white text-2xl font-bold">ADMINS</h1>
       </header>

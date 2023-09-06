@@ -30,9 +30,10 @@ function AdminLoginForm() {
       .then((response) => {
         const admin = {
           adminId: response.data.admin,
+          adminNo: response.data.adminId,
         };
         localStorage.setItem("admin", JSON.stringify(admin));
-        setAdminId(response.data.admin);
+        setAdminId(response.data.admin.adminId);
         toast.success("Logged in successfully");
 
         console.log(response.data.admin);
