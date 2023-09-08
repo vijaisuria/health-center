@@ -42,14 +42,13 @@ const Team = () => {
                     Dr. Jayachitra
                   </h1>
                   <p className="text-gray-800 text-sm text-center">
-                    Deputy Director | MIT Health Center
+                    Design and Administration of HealthCare Software
                   </p>
                   <p className="text-center text-gray-600 text-base pt-3 font-normal">
-                    Assistant Professor, Department of Computer Technology, MIT
-                    Campus, Anna University, Chennai
+                    Deputy Director, MIT Health centre, Anna University, Chennai
                   </p>
                   <div className="w-full flex justify-center pt-5 pb-5">
-                    <a href="javascript:void(0)" className="mx-5">
+                    <a href="#" className="mx-5">
                       <div aria-label="Github" role="img">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -67,10 +66,7 @@ const Team = () => {
                         </svg>
                       </div>
                     </a>
-                    <a
-                      href="https://www.linkedin.com/in/vijaisuria/"
-                      className="mx-5"
-                    >
+                    <a href="https://www.linkedin.com/" className="mx-5">
                       <div aria-label="LinkedIn" role="img">
                         <FontAwesomeIcon
                           icon={faLinkedin}

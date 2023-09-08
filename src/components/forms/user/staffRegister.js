@@ -4,7 +4,7 @@ import axios from "../../../services/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const StudentRegistrationForm = () => {
+const StaffRegistrationForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     registerNumber: "",
@@ -40,7 +40,7 @@ const StudentRegistrationForm = () => {
         programme: "UG",
         department: "AEROSPACE",
         residence: "hosteller",
-        agreeToTerms: false,
+        agreeToTerms: true,
       });
       toast.success("Registered successfully!");
       alert("Contact the administartor to verify your account!!");
@@ -269,4 +269,4 @@ const StudentRegistrationForm = () => {
   );
 };
 
-export default StudentRegistrationForm;
+export default StaffRegistrationForm;
