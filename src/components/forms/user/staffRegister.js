@@ -7,15 +7,13 @@ import "react-toastify/dist/ReactToastify.css";
 const StaffRegistrationForm = () => {
   const [formData, setFormData] = useState({
     name: "",
-    registerNumber: "",
+    staffId: "",
     phone: "",
     email: "",
     dob: "",
     gender: "",
-    programme: "UG",
     department: "AEROSPACE",
     agreeToTerms: true,
-    residence: "hosteller",
   });
 
   const handleChange = (e) => {
@@ -28,18 +26,16 @@ const StaffRegistrationForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("/students/register", formData);
+      const response = await axios.post("/staffs/register", formData);
       console.log("Registration successful:", response.data);
       setFormData({
         name: "",
-        registerNumber: "",
+        staffId: "",
         phone: "",
         email: "",
         dob: "",
         gender: "",
-        programme: "UG",
         department: "AEROSPACE",
-        residence: "hosteller",
         agreeToTerms: true,
       });
       toast.success("Registered successfully!");
@@ -65,7 +61,7 @@ const StaffRegistrationForm = () => {
                 MIT HEALTHCARE AUTOMATION SOFTWARE
               </h1>
               <h2 className="text-xl font-semibold text-blue-700">
-                STUDENT SELF REGISTRATION FORM
+                STAFF SELF REGISTRATION FORM
               </h2>
             </div>
           </div>
@@ -86,14 +82,14 @@ const StaffRegistrationForm = () => {
               />
             </div>
             <div>
-              <label htmlFor="registerNumber" className="block font-semibold">
-                Register Number:
+              <label htmlFor="staffId" className="block font-semibold">
+                Staff Id:
               </label>
               <input
                 type="text"
-                id="registerNumber"
-                name="registerNumber"
-                value={formData.registerNumber}
+                id="staffId"
+                name="staffId"
+                value={formData.staffId}
                 onChange={handleChange}
                 className="w-full p-2 border rounded"
               />
@@ -174,38 +170,6 @@ const StaffRegistrationForm = () => {
             </div>
           </div>
           <div>
-            <label htmlFor="programme" className="block font-semibold">
-              Programme:
-            </label>
-            <select
-              id="programme"
-              name="programme"
-              value={formData.programme}
-              onChange={handleChange}
-              className="w-full p-2 border rounded"
-            >
-              <option value="UG">UG</option>
-              <option value="PG">PG</option>
-              <option value="PHD">PHD</option>
-            </select>
-          </div>
-          <div>
-            <label htmlFor="residence" className="block font-semibold">
-              Residence:
-            </label>
-            <select
-              id="residence"
-              name="residence"
-              value={formData.residence}
-              onChange={handleChange}
-              className="w-full p-2 border rounded"
-            >
-              <option value="hosteller">Hostel</option>
-              <option value="dayscholar">Dayscholar</option>
-              <option value="other">Others</option>
-            </select>
-          </div>
-          <div>
             <label htmlFor="department" className="block font-semibold">
               Department:
             </label>
@@ -237,6 +201,9 @@ const StaffRegistrationForm = () => {
               </option>
               <option value="ARTIFICIAL INTELLIGENCE AND DATA SCIENCES">
                 ARTIFICIAL INTELLIGENCE AND DATA SCIENCES
+              </option>
+              <option value="ARTIFICIAL INTELLIGENCE AND DATA SCIENCES">
+                COMPUTER CENTRE
               </option>
               <option value="ROBOTICS">ROBOTICS</option>
             </select>

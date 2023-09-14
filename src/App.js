@@ -37,6 +37,7 @@ import AdminLogs from "./components/logs/adminLog";
 import RequestLandingPage from "./components/forms/prescription/newRequest";
 import NurseStaffRequestForm from "./components/forms/prescription/nurseStaffRequestForm";
 import StaffRegistrationForm from "./components/forms/user/staffRegister";
+import WelcomePage from "./components/forms/user/landingUser";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           <Route path="/" element={<LoginForm />} />
 
           <Route path="/register">
+            <Route index element={<WelcomePage />} />
             <Route path="student" element={<StudentRegistrationForm />} />
             <Route path="staff" element={<StaffRegistrationForm />} />
           </Route>
